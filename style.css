@@ -1,17 +1,113 @@
-html {
+:root {
   font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  --text-primary: #23232e;
+  --text-secondary: #141418;
+  --bg-primary: #b6b6b6;
+  --bg-secondary: #ececec;
+  --transition-speed: 600ms;
 }
 body {
   margin: 0;
+  padding: 0;
   color: white;
   background: #202731;
+}
+body::-webkit-scrollbar {
+  width: 0.5rem;
+}
+body::-webkit-scrollbar-track {
+  background: black;
+}
+body::-webkit-scrollbar-thumb {
+  background: white;
+}
+main {
+  margin-left: 5rem; /*same margin as navbar size*/
+  padding: 1rem;
+}
+.navbar {
+  width: 5rem;
+  height: 100vh; /*full height of view */
+  position: fixed;
+  background-color: var(--bg-secondary);
+  transition: width 300ms ease;
+}
+
+.navbar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+.nav-item {
+  width: 100%;
+}
+.nav-link {
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  filter: grayscale(100%) opacity(0.7);
+  transition: var(--transition-speed);
+}
+.nav-link:hover {
+  filter: grayscale(0%) opacity(1);
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+}
+.link-text {
+  display: none; /*prevent text from appearing when not hovered*/
+  margin-left: 1rem;
+}
+.nav-link svg {
+  min-width: 2rem;
+  margin: 0 1.5rem;
+}
+.navbar:hover {
+  width: 16rem;
+}
+.navbar:hover .link-text {
+  display: block; /*display text on hover of navbar*/
+}
+.svg-inline--fa {
+  color: #ff7eee;
+  transition: var(--transition-speed);
+}
+.logo {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  font-size: 1.5rem;
+  letter-spacing: 0.3ch;
+  width: 100%;
+}
+.logo svg {
+  transform: rotate(0deg);
+  transition: transform var(--transition-speed);
+}
+.logo-text {
+  display: inline;
+  position: absolute;
+  left: -999px;
+  transition: var(--transition-speed);
+}
+.navbar:hover .logo svg {
+  transform: rotate(-180deg);
 }
 section {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 100px 20vw;
+  padding: 50px 20vw;
   min-height: 400px;
 }
 .blue {
@@ -19,4 +115,14 @@ section {
 }
 .red {
   background: #dd3f31;
+}
+.hero {
+}
+
+/*Small Screens*/
+@media only screen and (max-width: 600px) {
+}
+
+/*Large screens*/
+@media only screen and (min-width: 600px) {
 }
